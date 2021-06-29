@@ -3,12 +3,12 @@ function makeForm(){
 function Form(){
     return(
 		<div>
-		Name: <Name /><br></br>
+		<Name /><br></br>
 		</div>
 	)}
 class Name extends React.Component {
         onChange(){
-            name=this.setState({value: event.target.value});
+            name=event.target.value;
             f=true
             for(i in name)
                 if (!(/[a-zA-Z]/).test(name[i]))
