@@ -7,7 +7,7 @@ function Form(){
 		</div>
 	)}
 class Name extends React.Component {
-       isName(name){
+       this.isName(name){
             for(var i in name)
                 if (!(/[a-zA-Z]/).test(name[i]))
                     return(false)
