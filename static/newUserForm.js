@@ -1,4 +1,4 @@
-function makeForm(info){
+function makeForm(){
  ReactDOM.render(<Form />, document.getElementById("formBox"));}
 function Form(){
     return(
@@ -24,3 +24,4 @@ class Name extends React.Component {
           </span></div>)
         }
       }
+makeForm();
