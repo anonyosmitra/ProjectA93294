@@ -28,7 +28,7 @@ class Dob extends React.Component {
         onChange(){
             var dob=event.target.value;
             var hide=true
-            var b=dbo.split("-")
+            var b=dob.split("-")
             for(var i in b)
                 b[i]=parseInt(b[i])
             now=new Date()
