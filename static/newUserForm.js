@@ -4,7 +4,6 @@ function Form(){
     return(
 		<div>
 		Name: <Name /><br></br>
-		Age: {(props.info.age).toString()}
 		</div>
 	)}
 class Name extends React.Component {
