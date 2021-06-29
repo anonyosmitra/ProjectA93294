@@ -17,7 +17,7 @@ class Name extends React.Component {
             document.getElementById("nameWarning").hidden=f;
         }
         render() {
-          return (<div<<b>Name:</b>
+          return (<div><b>Name:</b>
           <input onfocusout={this.onChange} name="name"></input>
           <span id="nameWarning"style="color:red;" hidden>
             <abbr title="Invalid Name">&#9888;</abbr>
