@@ -55,7 +55,7 @@ class Dob extends React.Component {
           </span></div>)
         }
       }
-countryCodes=[
+const countryCodes=[
 {"uid":"AD","flag":"🇦🇩","code":"376"},
 {"uid":"AE","flag":"🇦🇪","code":"971"},
 {"uid":"AF","flag":"🇦🇫","code":"93"},
