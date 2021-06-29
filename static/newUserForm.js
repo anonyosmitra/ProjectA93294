@@ -8,19 +8,21 @@ function Form(){
 	)}
 class Name extends React.Component {
         onChange(){
-            var name=event.target.value;
-            var hide=true
-            for(var i in name)
-                if (!(/[a-zA-Z]/).test(name[i]))
-                    hide=false;
-            document.getElementById("nameWarning").hidden=hide;
+            document.getElementById("nameWarning").hidden=this.isName(event.target.value);
         }
         render() {
           return (<div><b>Name:</b>
           <input onBlur={this.onChange} name="name"></input>
-          <span id="nameWarning" style={{color:"red"}} hidden>
+          <span id="nameWarning" style={{color:"red",cursor: "default"}} hidden>
             <abbr title="Invalid Name">&#9888;</abbr>
           </span></div>)
+        }
+        isName(name){
+            for(var i in name)
+                if (!(/[a-zA-Z]/).test(name[i]))
+                    return(false)
+            return(true)
+
         }
       }
 makeForm();
