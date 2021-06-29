@@ -7,6 +7,13 @@ function Form(){
 		</div>
 	)}
 class Name extends React.Component {
+       isName(name){
+            for(var i in name)
+                if (!(/[a-zA-Z]/).test(name[i]))
+                    return(false)
+            return(true)
+
+        }
         onChange(){
             document.getElementById("nameWarning").hidden=this.isName(event.target.value);
         }
@@ -16,13 +23,6 @@ class Name extends React.Component {
           <span id="nameWarning" style={{color:"red",cursor: "default"}} hidden>
             <abbr title="Invalid Name">&#9888;</abbr>
           </span></div>)
-        }
-        function isName(name){
-            for(var i in name)
-                if (!(/[a-zA-Z]/).test(name[i]))
-                    return(false)
-            return(true)
-
         }
       }
 makeForm();
