@@ -1,5 +1,5 @@
 function makeForm(info){
- ReactDOM.render(<Form />, domContainer);}
+ ReactDOM.render(<Form />, document.getElementById("formBox"));}
 function Form(){
     return(
 		<div>
