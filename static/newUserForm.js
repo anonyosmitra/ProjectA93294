@@ -17,7 +17,7 @@ class Name extends React.Component {
         }
         render() {
           return (<div><b>Name:</b>
-          <input onfocusout={this.onChange} name="name"></input>
+          <input onBlur={this.onChange} name="name"></input>
           <span id="nameWarning"style="color:red;" hidden>
             <abbr title="Invalid Name">&#9888;</abbr>
           </span></div>)
