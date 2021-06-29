@@ -7,7 +7,6 @@ function Form(){
 		Age: {(props.info.age).toString()}
 		</div>
 	)}
-}
 class Name extends React.Component {
         onChange(){
             name=this.setState({value: event.target.value});
