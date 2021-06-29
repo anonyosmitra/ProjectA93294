@@ -33,22 +33,22 @@ class Dob extends React.Component {
             for(var i in b)
                 b[i]=parseInt(b[i])
             var now=new Date()
-            if(now.getFullYear<b[0]+18)
+            if(now.getFullYear()<b[0]+18)
                 {
                 console.log(1)
                 hide=false}
             else{
             console.log(2)
-            if(now.getFullYear==b[0]+18)
-                if (now.getMonth+1<b[1])
+            if(now.getFullYear()==b[0]+18)
+                if (now.getMonth()+1<b[1])
                 {
                 console.log(3)
                     hide=false}
                 else {
                 console.log(4)
-                if (now.getMonth+1==b[1]){
+                if (now.getMonth()+1==b[1]){
                     console.log(5)
-                     if (now.getDate<b[2]){
+                     if (now.getDate()<b[2]){
                         console.log(6)
                         hide=false}}}}
             document.getElementById("dobWarning").hidden=hide;
