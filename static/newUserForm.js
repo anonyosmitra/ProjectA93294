@@ -283,7 +283,7 @@ class Phone extends React.Component {
         <option value={country.uid}>{country.flag}  +{country.code}</option>
     );
           return (<div><b>Date of Birth:</b>
-          <select onChange={this.selCountry} id="country">{countries}</select<input onChange={this.onChange} name="dob" type="date"></input>
+          <select onChange={this.selCountry} id="country">{countries}</select><input onChange={this.onChange} name="dob" type="date"></input>
           <span id="numWarning" style={{color:"red",cursor: "default"}} hidden>
             <abbr title="User must be above 18!">&#9888;</abbr>
           </span></div>)
