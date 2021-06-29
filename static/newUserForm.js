@@ -31,7 +31,7 @@ class Dob extends React.Component {
             var b=dob.split("-")
             for(var i in b)
                 b[i]=parseInt(b[i])
-            now=new Date()
+            var now=new Date()
             if(now.getFullYear<b[0]+18)
                 hide=false
             else if(now.getFullYear==b[0]+18)
