@@ -7,15 +7,13 @@ function Form(){
 		</div>
 	)}
 class Name extends React.Component {
-       isName(name){
+        onChange(){
+            var name=event.target.value;
+            var hide=true
             for(var i in name)
                 if (!(/[a-zA-Z]/).test(name[i]))
-                    return(false)
-            return(true)
-
-        }
-        onChange(){
-            document.getElementById("nameWarning").hidden=isName(event.target.value);
+                    hide=false;
+            document.getElementById("nameWarning").hidden=hide;
         }
         render() {
           return (<div><b>Name:</b>
