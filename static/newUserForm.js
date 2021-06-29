@@ -7,7 +7,7 @@ function Form(){
 		</div>
 	)}
 class Name extends React.Component {
-       this.isName(name){
+       isName(name){
             for(var i in name)
                 if (!(/[a-zA-Z]/).test(name[i]))
                     return(false)
@@ -15,7 +15,7 @@ class Name extends React.Component {
 
         }
         onChange(){
-            document.getElementById("nameWarning").hidden=this.isName(event.target.value);
+            document.getElementById("nameWarning").hidden=isName(event.target.value);
         }
         render() {
           return (<div><b>Name:</b>
