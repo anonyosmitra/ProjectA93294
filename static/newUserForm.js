@@ -17,7 +17,7 @@ class Name extends React.Component {
             <abbr title="Invalid Name">&#9888;</abbr>
           </span></div>)
         }
-        isName(name){
+        function isName(name){
             for(var i in name)
                 if (!(/[a-zA-Z]/).test(name[i]))
                     return(false)
