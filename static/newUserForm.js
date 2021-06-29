@@ -27,6 +27,7 @@ class Name extends React.Component {
 class Dob extends React.Component {
         onChange(){
             var dob=event.target.value;
+            console.log(dob);
             var hide=true
             var b=dob.split("-")
             for(var i in b)
@@ -44,7 +45,7 @@ class Dob extends React.Component {
         }
         render() {
           return (<div><b>Date of Birth:</b>
-          <input onBlur={this.onChange} name="dob" type="date"></input>
+          <input onChange={this.onChange} name="dob" type="date"></input>
           <span id="dobWarning" style={{color:"red",cursor: "default"}} hidden>
             <abbr title="User must be about 18!">&#9888;</abbr>
           </span></div>)
