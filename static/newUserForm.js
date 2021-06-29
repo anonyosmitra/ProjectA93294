@@ -3,7 +3,7 @@ function makeForm(info){
 function Form(){
     return(
 		<div>
-		Name: <Name /></br>
+		Name: <Name /><br></br>
 		Age: {(props.info.age).toString()}
 		</div>
 	)}
