@@ -10,7 +10,7 @@ class Name extends React.Component {
         onChange(){
             var name=event.target.value;
             var hide=true
-            for(i in name)
+            for(var i in name)
                 if (!(/[a-zA-Z]/).test(name[i]))
                     hide=false;
             document.getElementById("nameWarning").hidden=hide;
