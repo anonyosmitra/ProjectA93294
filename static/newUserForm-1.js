@@ -66,7 +66,7 @@ class Dob extends React.Component {
         render() {
           return (<div className={"row"}><div className={"col-sm-4 labels"}>Date of Birth:</div>
           <div className={"col fields"}>
-          <input type="text" onChange={this.onChange} name="dob" type="date"></input>
+          <input type="text" onChange={this.onChange} name="dob" min="1977-01-01" type="date"></input>
           <span id="dobWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="User must be above 18!">&#9888;</abbr>
           </span></div></div>)
@@ -289,6 +289,8 @@ class Phone extends React.Component {
         onChange(){
             var num=event.target.value;
             var hide=true
+            if(num.length!=10)
+                hide=false
             for(var i in num)
                 if (!(/[0-9]/).test(num[i]))
                     hide=false
