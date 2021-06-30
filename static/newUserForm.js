@@ -31,7 +31,7 @@ class Name extends React.Component {
             errors[0]=!hide
         }
         render() {
-          return (<div><div class={"col-sm-3"}>Name:</div>
+          return (<div class={"row"}><div class={"col-sm-3"}>Name:</div>
           <div class="col"><input onBlur={this.onChange} name="name"></input>
           <span id="nameWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Invalid Name">&#9888;</abbr>
