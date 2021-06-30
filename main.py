@@ -22,6 +22,7 @@ def form():
 		con.insertIntoTable("users",form)
 		allUsers=con.getTable("users",["rowid","name","dob","email","phone"])
 		con.close()
+		print(json.dumps(allUsers))
 		return (render_template("userList.html",users=json.dumps(allUsers)),200)
 
 if __name__ == '__main__':
