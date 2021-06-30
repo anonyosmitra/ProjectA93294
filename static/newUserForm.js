@@ -4,7 +4,7 @@ function makeForm(){
 
 class Form extends React.Component {
     onSubmit(){
-	if(var val(errors.join('+'))==0)
+	if(eval(errors.join('+'))==0)
 	    document.getElementById("newUserForm").submit();
 	else
 	    alert("Invalid information in form")
