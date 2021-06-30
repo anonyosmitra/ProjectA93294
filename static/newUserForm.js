@@ -16,7 +16,7 @@ class Form extends React.Component {
 		<Dob /><br></br>
 		<Phone /><br></br>
 		<Email /><br></br>
-		<input type="button" value="Submit" onClick={this.onSubmit}></input>
+		<input type="button" value="Submit" className={"submitBut"} onClick={this.onSubmit}></input>
 		</form>
 	)}
 	}
