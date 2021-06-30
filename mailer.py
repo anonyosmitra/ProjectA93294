@@ -45,4 +45,4 @@ Hi %s! Your new account has been registered."""%(name)
 	context = ssl.create_default_context()
 	with smtplib.SMTP_SSL(smtp_server, port, context=context) as server:
 		server.login(sender_email, password)
-		server.sendmail(msg)
+		server.sendmail(to_addrs=receiverId,msg=msg)
