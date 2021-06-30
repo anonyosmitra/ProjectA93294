@@ -16,3 +16,4 @@ function makeList(props){
      </table>)
 
  }
+ renderApp()
