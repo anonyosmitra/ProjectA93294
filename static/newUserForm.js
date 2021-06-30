@@ -328,7 +328,7 @@ class Email extends React.Component {
             errors[3]=!hide
         }
         render() {
-          return (<divclass={"row"}><div class={"col-sm-3 labels"}>Email id:</div><div class={"col"}>
+          return (<div class={"row"}><div class={"col-sm-3 labels"}>Email id:</div><div class={"col"}>
           <input type="text" onChange={this.onChange} name="email" ></input>
           <span id="emailWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Email Syntax Invalid!">&#9888;</abbr>
