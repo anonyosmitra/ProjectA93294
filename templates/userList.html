@@ -6,10 +6,11 @@
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" src="{{url_for('static',filename='userList.js')}}"></script>
+    <script onload="renderApp()" type="text/babel" src="{{url_for('static',filename='userList.js')}}"></script>
     <script>
+        function renderApp(){
         var users="{{users}}"
-        makeList(JSON.parse(users.replaceAll("&#34;",'"')))
+        makeList(JSON.parse(users.replaceAll("&#34;",'"')))}
     </script>
 </head>
 <body>
