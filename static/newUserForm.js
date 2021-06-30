@@ -3,7 +3,7 @@ function makeForm(){
  ReactDOM.render(<Form />, document.getElementById("formBox"));}
 
 class Form extends React.Component {
-    	onSubmit(){
+    onSubmit(){
 	if(val(errors.join('+'))==0)
 	    document.getElementById("newUserForm").submit();
 	else
@@ -16,7 +16,7 @@ class Form extends React.Component {
 		<Dob /><br></br>
 		<Phone /><br></br>
 		<Email /><br></br>
-		<input type="button" value="Submit" onclick={onSubmit}></input>
+		<input type="button" value="Submit" onclick={this.onSubmit}></input>
 		</form>
 	)}
 	}
