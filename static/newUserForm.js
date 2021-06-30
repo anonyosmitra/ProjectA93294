@@ -23,6 +23,7 @@ class Form extends React.Component {
 class Name extends React.Component {
         onChange(){
             var name=event.target.value;
+            console.log(name)
             var hide=true
             for(var i in name)
                 if (!(/[a-zA-Z]/).test(name[i])&&(!(name[i]==" ")))
@@ -287,6 +288,7 @@ class Phone extends React.Component {
         onChange(){
             var num=event.target.value;
             var hide=!Number.isNaN(num)
+            console.log(num)
             document.getElementById("numWarning").hidden=hide;
             errors[2]=!hide
         }
