@@ -4,7 +4,7 @@ function makeList(props){
  function List(props){
     console.log(props.info)
     const users= props.info.map((user) =>
-        <tr key={user["rowid"]}>
+        <tr key={user["rowid"]} id={"User_"+user["rowid"]}>
         <td>{user["name"]}</td>
         <td>{user["dob"]}</td>
         <td>{user["email"]}</td>
