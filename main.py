@@ -13,6 +13,9 @@ if not path.exists("database.db"):
 def form():
 	if request.method == 'GET':
 		return (render_template("NewUserForm.html"),200)
+	else:
+		print(request.form)
+		return ("OK",200)
 
 if __name__ == '__main__':
 	app.secret_key = 'password'

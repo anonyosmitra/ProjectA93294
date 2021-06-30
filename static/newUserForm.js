@@ -16,7 +16,7 @@ class Form extends React.Component {
 		<Dob /><br></br>
 		<Phone /><br></br>
 		<Email /><br></br>
-		<input type="button" value="Submit" onclick={this.onSubmit}></input>
+		<input type="button" value="Submit" onClick={this.onSubmit}></input>
 		</form>
 	)}
 	}
@@ -295,7 +295,7 @@ class Phone extends React.Component {
         }
         render() {
           const countries= countryCodes.map((country) =>
-        <option value={country.code}>{country.flag}  +{country.code}</option>
+        <option key={country.uid} value={country.code}>{country.flag}  +{country.code}</option>
     );
           return (<div><b>Phone No.:</b>
           <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input onChange={this.onChange} name="num"></input>
