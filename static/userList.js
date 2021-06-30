@@ -10,8 +10,8 @@ function makeList(props){
         <td>{user["email"]}</td>
         <td>{user["phone"]}</td>
         </tr>);
-        return(<table>
-     <thead><tr><td>Name</td><td>Date of birth</td><td>Email</td><td>Phone</td></tr></thead>
+        return(<table className={"table"}>
+     <thead className={"thead-light"}><tr><td>Name</td><td>Date of birth</td><td>Email</td><td>Phone</td></tr></thead>
        <tbody>{users}</tbody>
      </table>)
 
