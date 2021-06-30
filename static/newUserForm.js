@@ -297,7 +297,7 @@ class Phone extends React.Component {
           const countries= countryCodes.map((country) =>
         <option value={country.code}>{country.flag}  +{country.code}</option>
     );
-          return (<div><b>Date of Birth:</b>
+          return (<div><b>Phone No.:</b>
           <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input onChange={this.onChange} name="num"></input>
           <span id="numWarning" style={{color:"red",cursor: "default"}} hidden>
             <abbr title="Number must be digits!">&#9888;</abbr>
@@ -327,7 +327,7 @@ class Email extends React.Component {
             errors[3]=hide
         }
         render() {
-          return (<div><b>Date of Birth:</b>
+          return (<div><b>Email id:</b>
           <input onChange={this.onChange} name="email" ></input>
           <span id="emailWarning" style={{color:"red",cursor: "default"}} hidden>
             <abbr title="Email Syntax Invalid!">&#9888;</abbr>
