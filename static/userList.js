@@ -1,6 +1,6 @@
 function makeList(props){
     console.log(props)
-    ReactDOM.render(<list info={props}/>, document.getElementById("list"));}
+    ReactDOM.render(<List info={props}/>, document.getElementById("list"));}
  function List(props){
     console.log(props.info)
     const users= props.info.map((user) =>
