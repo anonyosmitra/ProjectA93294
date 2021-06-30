@@ -19,10 +19,10 @@ def form():
 		form={"name":request.form["name"], "dob":request.form["dob"], "phone":"+%s%s"%(request.form["tel_code"],request.form["num"]), "email":request.form["email"]}
 		send(form["email"],form["name"])
 		con=dbh.Connect()
-		con.insertIntoTable("user",form)
+		con.insertIntoTable("users",form)
 		allUsers=con.getTable("users",["rowid","name","dob","email","phone"])
 		con.close()
-		return (render_template("userList.html"),200)
+		return (render_template("userList.html",users=allUsers),200)
 
 if __name__ == '__main__':
 	app.secret_key = 'password'
