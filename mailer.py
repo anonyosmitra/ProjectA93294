@@ -7,6 +7,7 @@ password = ("x380@0000")
 def send(receiverId,name):
 	receiver_email = receiverId
 	message = """\
+	Mailing System
 	Subject: User Registered
 
 	Hi %s! Your new account have been registered."""%(name)
