@@ -288,7 +288,10 @@ const countryCodes=[
 class Phone extends React.Component {
         onChange(){
             var num=event.target.value;
-            var hide=!Number.isNaN(num)
+            var hide=true
+            for(var i in num)
+                if (!(/[0-9]/).test(num[i]))
+                    hide=false
             if(num=="")
                 hide=false
             document.getElementById("numWarning").hidden=hide;
