@@ -1,13 +1,25 @@
+var errors=[false,false,false,false]
 function makeForm(){
  ReactDOM.render(<Form />, document.getElementById("formBox"));}
-function Form(){
+
+class Form extends React.Component {
+    render() {
     return(
-		<form>
+		<form id="newUserForm" action={window.location.href} method="post">
 		<Name /><br></br>
 		<Dob /><br></br>
 		<Phone /><br></br>
+		<Email /><br></br>
+		<input type="button" value="Submit" onclick={onSubmit}></input>
 		</form>
 	)}
+	onSubmit(){
+	if(val(errors.join('+'))==0)
+	    document.getElementById("newUserForm").submit();
+	else
+	    alert("Invalid information in form")
+	}
+	}
 class Name extends React.Component {
         onChange(){
             var name=event.target.value;
@@ -16,6 +28,7 @@ class Name extends React.Component {
                 if (!(/[a-zA-Z]/).test(name[i]))
                     hide=false;
             document.getElementById("nameWarning").hidden=hide;
+            errors[0]=hide
         }
         render() {
           return (<div><b>Name:</b>
@@ -46,6 +59,7 @@ class Dob extends React.Component {
                      if (now.getDate()<b[2]){
                         hide=false}}}}
             document.getElementById("dobWarning").hidden=hide;
+            errors[1]=hide
         }
         render() {
           return (<div><b>Date of Birth:</b>
@@ -56,6 +70,7 @@ class Dob extends React.Component {
         }
       }
 const countryCodes=[
+{"uid":"IN","flag":"🇮🇳","code":"91"},
 {"uid":"AD","flag":"🇦🇩","code":"376"},
 {"uid":"AE","flag":"🇦🇪","code":"971"},
 {"uid":"AF","flag":"🇦🇫","code":"93"},
@@ -140,7 +155,6 @@ const countryCodes=[
 {"uid":"ID","flag":"🇮🇩","code":"62"},
 {"uid":"IE","flag":"🇮🇪","code":"353"},
 {"uid":"IL","flag":"🇮🇱","code":"972"},
-{"uid":"IN","flag":"🇮🇳","code":"91"},
 {"uid":"IO","flag":"🇮🇴","code":"246"},
 {"uid":"IQ","flag":"🇮🇶","code":"964"},
 {"uid":"IR","flag":"🇮🇷","code":"98"},
@@ -271,8 +285,9 @@ const countryCodes=[
 class Phone extends React.Component {
         onChange(){
             var num=event.target.value;
-            var hide=Number.isInteger(num)
+            var hide=!Number.isNaN(num)
             document.getElementById("numWarning").hidden=hide;
+            errors[2]=hide
         }
         selCountry(){
         contCode=document.getElementById("country").value;
@@ -280,12 +295,42 @@ class Phone extends React.Component {
         }
         render() {
           const countries= countryCodes.map((country) =>
-        <option value={country.uid}>{country.flag}  +{country.code}</option>
+        <option value={country.code}>{country.flag}  +{country.code}</option>
     );
           return (<div><b>Date of Birth:</b>
-          <select onChange={this.selCountry} id="country">{countries}</select><input onChange={this.onChange} name="dob" type="date"></input>
+          <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input onChange={this.onChange} name="num"></input>
           <span id="numWarning" style={{color:"red",cursor: "default"}} hidden>
-            <abbr title="User must be above 18!">&#9888;</abbr>
+            <abbr title="Number must be digits!">&#9888;</abbr>
+          </span></div>)
+        }
+      }
+class Email extends React.Component {
+        onChange(){
+            var mail=event.target.value;
+            var hide=true
+            mail=mail.split("@")
+            if(mail.length!=2)
+                hide=false
+            else{
+                if(mail[1].split(".").length<2)
+                hide=false
+                else
+                {
+                validChars=["+","-","_","~","."]
+                mail=mail[0]+mail[1]
+                for(var i in mail)
+                    if (!(/[a-zA-Z0-9]/).test(mail[i])&&!(validChars.includes(mail[i])))
+                    hide=false;
+                }
+            }
+            document.getElementById("emailWarning").hidden=hide;
+            errors[3]=hide
+        }
+        render() {
+          return (<div><b>Date of Birth:</b>
+          <input onChange={this.onChange} name="email" ></input>
+          <span id="emailWarning" style={{color:"red",cursor: "default"}} hidden>
+            <abbr title="Email Syntax Invalid!">&#9888;</abbr>
           </span></div>)
         }
       }
