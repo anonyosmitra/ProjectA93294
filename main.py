@@ -22,7 +22,7 @@ def form():
 		con.insertIntoTable("users",form)
 		allUsers=con.getTable("users",["rowid","name","dob","email","phone"])
 		con.close()
-		return (render_template("userList.html",users=json.dump(allUsers)),200)
+		return (render_template("userList.html",users=json.dumps(allUsers)),200)
 
 if __name__ == '__main__':
 	app.secret_key = 'password'
