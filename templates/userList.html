@@ -9,8 +9,7 @@
     <script type="text/babel" src="{{url_for('static',filename='userList.js')}}"></script>
     <script>
         var users="{{users}}"
-        console.log(users)
-        makeList(users)
+        makeList(JSON.parse(users.replaceAll("&#34;",'"')))
     </script>
 </head>
 <body>
