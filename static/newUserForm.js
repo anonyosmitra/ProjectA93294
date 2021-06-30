@@ -3,6 +3,12 @@ function makeForm(){
  ReactDOM.render(<Form />, document.getElementById("formBox"));}
 
 class Form extends React.Component {
+    	onSubmit(){
+	if(val(errors.join('+'))==0)
+	    document.getElementById("newUserForm").submit();
+	else
+	    alert("Invalid information in form")
+	}
     render() {
     return(
 		<form id="newUserForm" action={window.location.href} method="post">
@@ -13,12 +19,6 @@ class Form extends React.Component {
 		<input type="button" value="Submit" onclick={onSubmit}></input>
 		</form>
 	)}
-	onSubmit(){
-	if(val(errors.join('+'))==0)
-	    document.getElementById("newUserForm").submit();
-	else
-	    alert("Invalid information in form")
-	}
 	}
 class Name extends React.Component {
         onChange(){
