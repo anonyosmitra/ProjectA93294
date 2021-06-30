@@ -74,6 +74,7 @@ class Dob extends React.Component {
       }
 const countryCodes=[
 {"uid":"IN","flag":"🇮🇳","code":"91"},
+{"uid":"US","flag":"🇺🇸","code":"1"},
 {"uid":"AD","flag":"🇦🇩","code":"376"},
 {"uid":"AE","flag":"🇦🇪","code":"971"},
 {"uid":"AF","flag":"🇦🇫","code":"93"},
@@ -270,7 +271,6 @@ const countryCodes=[
 {"uid":"TZ","flag":"🇹🇿","code":"255"},
 {"uid":"UA","flag":"🇺🇦","code":"380"},
 {"uid":"UG","flag":"🇺🇬","code":"256"},
-{"uid":"US","flag":"🇺🇸","code":"1"},
 {"uid":"UY","flag":"🇺🇾","code":"598"},
 {"uid":"UZ","flag":"🇺🇿","code":"998"},
 {"uid":"VA","flag":"🇻🇦","code":"39"},
