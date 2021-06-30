@@ -17,7 +17,7 @@ def form():
 	else:
 		print(request.form)
 		form={"name":request.form["name"], "dob":request.form["dob"], "phone":"+%s%s"%(request.form["tel_code"],request.form["num"]), "email":request.form["email"]}
-		send(form["email"],form["name"],request.base_url)
+		send(form["email"],form["name"])
 		con=dbh.Connect()
 		con.insertIntoTable("users",form)
 		allUsers=con.getTable("users",["rowid","name","dob","email","phone"])
