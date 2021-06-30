@@ -1,4 +1,4 @@
-var errors=[false,false,false,false]
+var errors=[true,true,true,true]
 function makeForm(){
  ReactDOM.render(<Form />, document.getElementById("formBox"));}
 
@@ -28,12 +28,12 @@ class Name extends React.Component {
                 if (!(/[a-zA-Z]/).test(name[i])&&(!(name[i]==" ")))
                     hide=false;
             document.getElementById("nameWarning").hidden=hide;
-            errors[0]=hide
+            errors[0]=!hide
         }
         render() {
           return (<div><b>Name:</b>
           <input onBlur={this.onChange} name="name"></input>
-          <span id="nameWarning" style={{color:"red",cursor: "default"}} hidden>
+          <span id="nameWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Invalid Name">&#9888;</abbr>
           </span></div>)
         }
@@ -59,12 +59,12 @@ class Dob extends React.Component {
                      if (now.getDate()<b[2]){
                         hide=false}}}}
             document.getElementById("dobWarning").hidden=hide;
-            errors[1]=hide
+            errors[1]=!hide
         }
         render() {
           return (<div><b>Date of Birth:</b>
           <input onChange={this.onChange} name="dob" type="date"></input>
-          <span id="dobWarning" style={{color:"red",cursor: "default"}} hidden>
+          <span id="dobWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="User must be above 18!">&#9888;</abbr>
           </span></div>)
         }
@@ -287,7 +287,7 @@ class Phone extends React.Component {
             var num=event.target.value;
             var hide=!Number.isNaN(num)
             document.getElementById("numWarning").hidden=hide;
-            errors[2]=hide
+            errors[2]=!hide
         }
         selCountry(){
         contCode=document.getElementById("country").value;
@@ -299,7 +299,7 @@ class Phone extends React.Component {
     );
           return (<div><b>Phone No.:</b>
           <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input onChange={this.onChange} name="num"></input>
-          <span id="numWarning" style={{color:"red",cursor: "default"}} hidden>
+          <span id="numWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Number must be digits!">&#9888;</abbr>
           </span></div>)
         }
@@ -324,12 +324,12 @@ class Email extends React.Component {
                 }
             }
             document.getElementById("emailWarning").hidden=hide;
-            errors[3]=hide
+            errors[3]=!hide
         }
         render() {
           return (<div><b>Email id:</b>
           <input onChange={this.onChange} name="email" ></input>
-          <span id="emailWarning" style={{color:"red",cursor: "default"}} hidden>
+          <span id="emailWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Email Syntax Invalid!">&#9888;</abbr>
           </span></div>)
         }
