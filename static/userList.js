@@ -1,6 +1,8 @@
 function makeList(props){
+    console.log(props)
     ReactDOM.render(<list info={props}/>, document.getElementById("formBox"));}
  function List(props){
+    console.log(props.info)
     const users= props.info.map((user) =>
         <tr key={user["rowid"]}>
         <td>{user["name"]}</td>
