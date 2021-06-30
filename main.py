@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, url_for, redirect, flash, jsonify
-from flask_debug import Debug
 import requests, json
 import os.path
 from os import path
@@ -10,6 +9,10 @@ application = app = Flask(__name__)
 if not path.exists("database.db"):
 	dbh.runSql("CREATE TABLE users(name text, dob date, email text,phone text)")
 
+@app.route('/view', methods=["GET"])
+def view():
+	allUsers = dbh.getTable("users", ["rowid", "name", "dob", "email", "phone"])
+	return (render_template("userList.html", users=json.dumps(allUsers).replace('"', "\"")), 200)
 @app.route('/user-form', methods=['POST',"GET"])
 def form():
 	if request.method == 'GET':
@@ -22,7 +25,6 @@ def form():
 		con.insertIntoTable("users",form)
 		allUsers=con.getTable("users",["rowid","name","dob","email","phone"])
 		con.close()
-		print(json.dumps(allUsers))
 		return (render_template("userList.html",users=json.dumps(allUsers).replace('"',"\"")),200)
 
 if __name__ == '__main__':
