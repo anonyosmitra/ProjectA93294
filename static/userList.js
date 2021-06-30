@@ -11,8 +11,8 @@ function makeList(props){
         <td>{user["phone"]}</td>
         </tr>);
         return(<table>
-     <tr><td>Name</td><td>Date of birth</td><td>Email</td><td>Phone</td></tr>
-       {users}
+     <thead><tr><td>Name</td><td>Date of birth</td><td>Email</td><td>Phone</td></tr></thead>
+       <tbody>{users}</tbody>
      </table>)
 
  }
