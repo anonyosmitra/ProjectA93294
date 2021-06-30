@@ -4,8 +4,8 @@ port = 465  # For SSL
 smtp_server = "smtp.gmail.com"
 sender_email = "x3800177@gmail.com"
 password = ("x380@0000")
-def send(receiver,name):
-	receiver_email = receiver
+def send(receiverId,name):
+	receiver_email = receiverId
 	message = """\
 	Subject: User Registered
 

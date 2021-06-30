@@ -3,11 +3,12 @@ from flask_debug import Debug
 import requests, json
 import os.path
 from os import path
+from mailer import send
 import dbHandler as dbh
 application = app = Flask(__name__)
 
 if not path.exists("database.db"):
-	dbh.runSql("CREATE TABLE users(name text, dob date, email text,number text)")
+	dbh.runSql("CREATE TABLE users(name text, dob date, email text,phone text)")
 
 @app.route('/user-form', methods=['POST',"GET"])
 def form():
@@ -15,7 +16,13 @@ def form():
 		return (render_template("NewUserForm.html"),200)
 	else:
 		print(request.form)
-		return ("OK",200)
+		form={"name":request.form["name"], "dob":request.form["dob"], "phone":"+%s%s"%(request.form["tel_code"],request.form["num"]), "email":request.form["email"]}
+		send(form["email"],form["name"])
+		con=dbh.Connect()
+		con.insertIntoTable("user",form)
+		allUsers=con.getTable("users",["rowid","name","dob","email","phone"])
+		con.close()
+		return (render_template("userList.html"),200)
 
 if __name__ == '__main__':
 	app.secret_key = 'password'
