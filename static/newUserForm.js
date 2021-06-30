@@ -31,8 +31,8 @@ class Name extends React.Component {
             errors[0]=!hide
         }
         render() {
-          return (<div class={"row"}><div class={"col-sm-3 labels"}>Name:</div>
-          <div class="col fields"><input type="text" onBlur={this.onChange} name="name"></input>
+          return (<div className={"row"}><div className={"col-sm-4 labels"}>Name:</div>
+          <div className="col fields"><input type="text" onBlur={this.onChange} name="name"></input>
           <span id="nameWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Invalid Name">&#9888;</abbr>
           </span></div></div>)
@@ -62,8 +62,8 @@ class Dob extends React.Component {
             errors[1]=!hide
         }
         render() {
-          return (<div class={"row"}><div class={"col-sm-3 labels"}>Date of Birth:</div>
-          <div class={"col fields"}>
+          return (<div className={"row"}><div className={"col-sm-4 labels"}>Date of Birth:</div>
+          <div className={"col fields"}>
           <input type="text" onChange={this.onChange} name="dob" type="date"></input>
           <span id="dobWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="User must be above 18!">&#9888;</abbr>
@@ -298,8 +298,8 @@ class Phone extends React.Component {
           const countries= countryCodes.map((country) =>
         <option key={country.uid} value={country.code}>{country.flag}  +{country.code}</option>
     );
-          return (<div class={"row"}><div class={"col-sm-3 labels"}>Phone No.:</div><div class={"col fields"}>
-          <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input type="text" onChange={this.onChange} name="num"></input>
+          return (<div className={"row"}><div className={"col-sm-4 labels"}>Phone No.:</div><div className={"col fields"}>
+          <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input type="text" onChange={this.onChange} className={"phNum"} name="num"></input>
           <span id="numWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Number must be digits!">&#9888;</abbr>
           </span></div></div>)
@@ -328,7 +328,7 @@ class Email extends React.Component {
             errors[3]=!hide
         }
         render() {
-          return (<div class={"row"}><div class={"col-sm-3 labels"}>Email id:</div><div class={"col fields"}>
+          return (<div className={"row"}><div className={"col-sm-4 labels"}>Email id:</div><div className={"col fields"}>
           <input type="text" onChange={this.onChange} name="email" ></input>
           <span id="emailWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Email Syntax Invalid!">&#9888;</abbr>
