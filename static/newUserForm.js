@@ -299,7 +299,7 @@ class Phone extends React.Component {
         <option key={country.uid} value={country.code}>{country.flag}  +{country.code}</option>
     );
           return (<div className={"row"}><div className={"col-sm-4 labels"}>Phone No.:</div><div className={"col fields"}>
-          <select onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input type="text" onChange={this.onChange} className={"phNum"} name="num"></input>
+          <select className={"selCountry"} onChange={this.selCountry}  name="tel_code" id="country">{countries}</select><input type="text" onChange={this.onChange} className={"phNum"} name="num"></input>
           <span id="numWarning" style={{color:"red",cursor: "default"}}>
             <abbr title="Number must be digits!">&#9888;</abbr>
           </span></div></div>)
