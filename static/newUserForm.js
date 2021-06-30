@@ -25,7 +25,7 @@ class Name extends React.Component {
             var name=event.target.value;
             var hide=true
             for(var i in name)
-                if (!(/[a-zA-Z]/).test(name[i]))
+                if (!(/[a-zA-Z]/).test(name[i])&&(!(name[i]==" ")))
                     hide=false;
             document.getElementById("nameWarning").hidden=hide;
             errors[0]=hide
@@ -316,7 +316,7 @@ class Email extends React.Component {
                 hide=false
                 else
                 {
-                validChars=["+","-","_","~","."]
+                var validChars=["+","-","_","~","."]
                 mail=mail[0]+mail[1]
                 for(var i in mail)
                     if (!(/[a-zA-Z0-9]/).test(mail[i])&&!(validChars.includes(mail[i])))
