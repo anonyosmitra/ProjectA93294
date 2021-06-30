@@ -9,6 +9,11 @@ application = app = Flask(__name__)
 if not path.exists("database.db"):
 	dbh.runSql("CREATE TABLE users(name text, dob date, email text,phone text)")
 
+@app.route('/view', methods=["GET"])
+def view():
+	return("",404)
+	allUsers = dbh.getTable("users", ["rowid", "name", "dob", "email", "phone"])
+	return (render_template("userList.html", users=json.dumps(allUsers).replace('"', "\"")), 200)
 @app.route('/user-form', methods=['POST',"GET"])
 def form():
 	if request.method == 'GET':
